@@ -1,0 +1,55 @@
+<html>
+<body>
+    <ul>
+        <li>gramata</li>
+        <li>telefons</li>
+        <li>dators</li>
+    </ul>
+    <p>Teksts. Vesala rindkopa!</p>
+    <a href="https://en.wikipedia.org/wiki/English_alphabet">Uz Wikipedia!</a>
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ4AWpIicmj6Rz6TDqosclecv6_Sx9cymz9BA&s" alt="bilde!">
+    <title>abc</title>
+    <canvas id= "canv" width = "800" heigth = "800"></canvas>
+    <script>
+    const canv = document.getElementById('canv');
+    const ctx = canv.getContext('2d');
+    let x = 0;
+    let y = 0;
+    let r = 0;
+    function draw() {
+    ctx.fillStyle = 'white';
+    ctx.fillRect(0, 0, 300, 300);
+    ctx.fillStyle = r;
+    ctx.fillRect(x, y+60, 30, 30);    
+    }
+    function move(event) {
+    if (event.key === 'ArrowRight') {
+    x = x + 10; }
+    if (event.key === 'ArrowLeft') {
+    x = x - 10; }
+    if (event.key === 'ArrowUp') {
+    y = y - 10; }
+    if (event.key === 'ArrowDown') {
+    y = y + 10; }
+    }
+    function color(event) {
+    if (event.key === 'g') {
+    r = 'green';
+    ctx.fillRect(x, y, 30, 30); 
+    }
+    if (event.key === 'o') {
+    r = 'orange';
+    ctx.fillRect(x,y,30,30);
+    }
+    if (event.key === 'b') {
+    r = 'black';
+    ctx.fillRect(x,y,30,30);
+    }
+    }
+
+    addEventListener('keydown', move);
+    setInterval(draw, 10);
+    addEventListener('keydown', color)
+</script>
+</body>
+</html>
